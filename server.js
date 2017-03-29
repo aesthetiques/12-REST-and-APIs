@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-const conString = ''; // TODO: Don't forget to set your own conString
+const conString = 'postgres://veslan:15e4tkmhkeih@localhost:5432/kilovolt'; // TODO: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', function(error) {
@@ -50,7 +50,7 @@ app.post('/articles', (request, response) => {
         request.body.body,
         request.body.author
       ]
-    )
+    );
   })
   .then(() => response.send('Insert complete'))
   .catch(console.error);
@@ -78,7 +78,7 @@ app.put('/articles/:id', (request, response) => {
         request.body.body,
         request.params.id
       ]
-    )
+    );
   })
   .then(() => response.send('Update complete'))
   .catch(console.error);
@@ -101,8 +101,7 @@ app.delete('/articles', (request, response) => {
 
 loadDB();
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
-
+app.listen(PORT, () => console.log(`Server started on port http://localhost:${PORT}!`));
 
 //////// ** DATABASE LOADERS ** ////////
 ////////////////////////////////////////
@@ -114,8 +113,8 @@ function loadAuthors() {
         [ele.author, ele.authorUrl]
       )
       .catch(console.error);
-    })
-  })
+    });
+  });
 }
 
 function loadArticles() {
@@ -134,10 +133,10 @@ function loadArticles() {
             [ele.title, ele.category, ele.publishedOn, ele.body, ele.author]
           )
           .catch(console.error);
-        })
-      })
+        });
+      });
     }
-  })
+  });
 }
 
 function loadDB() {
