@@ -28,7 +28,7 @@
     <!-- TODO: DONE We have a new Handlebars template! Help fill in a few expressions: -->
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
-        <a href="{{html_url}}" target="_blank"><h3>{{}}</h3></a>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
         <p>Description: {{descrpition}}</p>
         <p>Language: {{language}}</p>
         <p>Created: {{created_at}}</p>
@@ -99,22 +99,22 @@
 
     <!-- Your secret GitHub token file should be gitingore'd, therefore recreated on every developer's environment. -->
     <script src="/scripts/models/githubToken.js"></script>
-    <script src="/scripts/models/repo.js"></script>
 
     <!-- Script files for the Article resource: -->
     <script src="/scripts/models/article.js"></script>
     <script src="/scripts/views/articleView.js"></script>
+    <script src="/scripts/controllers/aboutController.js"></script>
     <script src="/scripts/controllers/articleController.js"></script>
 
     <!-- TODO:DONE? Be sure to include any new script files: -->
 
-    <script src="/scripts/views/repoView.js"></script>
-    <script src="/scripts/views/adminView.js"></script>
-    <script src="/scripts/views/newArticle.js"></script>
-
-
-
-
     <script src="/scripts/controllers/routes.js"></script>
+    <script src="/scripts/views/repoView.js"></script>
+    <script src="/scripts/models/repo.js"></script>
+
+
+
+
+
   </body>
 </html>
