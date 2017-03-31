@@ -11,9 +11,7 @@
     $about.show().siblings().hide();
   };
 
-
-  const render= Handlebars.compile($('#repo-template').text());
-
+  const render = Handlebars.compile($('#repo-template').text());
 
   // TODO: DONE Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
